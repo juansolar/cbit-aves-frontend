@@ -1,0 +1,40 @@
+<body>
+    <div class="ingreso" >
+        <div class="imagenSeleccionada">
+            <input type="file" class="d-none" (change)="imagenSeleccionada($event)" #imageInput>
+            <img src="../../../assets/no-image.png" alt="No imagen" (click)="imageInput.click()"> 
+        </div>
+        <button>Seleccionar imagen</button>
+        <button>Conocer que animal es</button>
+    </div>
+
+    <div class="resultado">
+        <h2>Animal</h2>
+        <div class="imagenPrimaria">
+        </div>
+        <div class="nombrePrimaria">
+            <p>packo</p>
+        </div>
+        <div class="imagenesSecundarias">
+            <div class="imagenSecundaria"></div>
+            <div class="imagenSecundaria"></div>
+            <div class="imagenSecundaria"></div>
+            <div class="imagenSecundaria"></div>    
+        </div>
+        <div class="nombreSecundaria">
+            <p>packo</p>
+        </div>
+        <div class="nombreSecundaria">
+            <p>packo</p>
+        </div>
+        <div class="nombreSecundaria">
+            <p>packo</p>
+        </div>
+        <div class="nombreSecundaria">
+            <p>packo</p>
+        </div>
+        <h5 id="by">
+            By: Fernando Gomez y Juan Camilo Solarte Orozco
+        </h5>
+    </div>
+</body>
