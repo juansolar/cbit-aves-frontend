@@ -21,7 +21,7 @@ export class MenuComponent implements OnInit {
   imagen4: String | ArrayBuffer;
   imagen5: String | ArrayBuffer;
 
-  animal: String = "Nombre del animal";
+  animal: String = "";
   animal1: String = "";
   animal2: String = "";
   animal3: String = "";
