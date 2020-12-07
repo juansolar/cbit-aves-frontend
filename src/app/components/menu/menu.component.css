@@ -37,17 +37,16 @@ body{
 }
 
 .imagenPrimaria{
-    width: 55%;
-    height: 40%;
-    margin: 5% 25%;
+    width: 35%;
+    height: 20%;
+    margin: 5% 35%;
 }
 
 .imagenSecundaria{
     width: 20%;
     height: 80%;
-    
     float: left;
-    margin: 1% 2.5%;
+    margin: 0% 2.5%;
 }
 
 .nombrePrimaria{
@@ -103,4 +102,29 @@ button{
     font-size: 15px;
     outline: none;
     margin: 5% 5%;
+}
+
+table{
+    margin: 0 50%;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 15px;
+}
+
+.tabla{
+    margin: 0 35%;
+}
+
+#titulo{
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+#contenido{
+    border-bottom: 1px solid #dddddd;
+}
+
+#contenido, td :nth-of-type(even){
+    background-color: #f3f3f3;
 }
