@@ -5,76 +5,81 @@
             <img [src]="imagenIngresada  || '../../../assets/no-image.png'" class="img-fluid" alt="No imagen" > 
         </div>
         <button (click)="imageInput.click()" >Seleccionar imagen</button>
-        <button (click)="cbir()">Conocer que animal es</button>
+        <button (click)="cbir()">Encontrar imagenes similares</button>
     </div>
 
-    <div class="resultado">
-        <div class="nombreAnimal">
-            <h2>{{animal}}</h2>
+    <div class="resultado" >
+        <div style="height: 85%;">
+            <div class="nombreAnimal">
+                <h2>{{animal}}</h2>
+            </div>
+    
+            <div *ngIf="existeImagenes != true else imagenes">
+                <div class="imagenPrimaria">
+                    <img [src]="imagen1  || '../../../assets/no-image.png'" class="img-fluid" alt="No imagen" > 
+                    <!-- <img src="../../../assets/dataset/{{imagenn}}" class="img-fluid" alt="No imagen" >  -->
+                </div>
+                <div class="imagenesSecundarias">
+                    <div class="imagenSecundaria">
+                        <img [src]="imagen2  || '../../../assets/no-image.png'" class="img-fluid" alt="No imagen" > 
+                    </div>
+                    <div class="imagenSecundaria">
+                        <img [src]="imagen3  || '../../../assets/no-image.png'" class="img-fluid" alt="No imagen" > 
+                    </div>
+                    <div class="imagenSecundaria">
+                        <img [src]="imagen4  || '../../../assets/no-image.png'" class="img-fluid" alt="No imagen" > 
+                    </div>
+                    <div class="imagenSecundaria">
+                        <img [src]="imagen5  || '../../../assets/no-image.png'" class="img-fluid" alt="No imagen" > 
+                    </div>
+                </div>
+            </div>
+    
+            <ng-template #imagenes>
+                <div class="imagenPrimaria">
+                    <img src="../../../assets/dataset/{{img1}}" class="img-fluid" alt="No imagen" > 
+                </div>
+                <div class="imagenesSecundarias">
+                    <div class="imagenSecundaria">
+                        <img src="../../../assets/dataset/{{img2}}" class="img-fluid" alt="No imagen" > 
+                    </div>
+                    <div class="imagenSecundaria">
+                        <img src="../../../assets/dataset/{{img3}}" class="img-fluid" alt="No imagen" > 
+                    </div>
+                    <div class="imagenSecundaria">
+                        <img src="../../../assets/dataset/{{img4}}" class="img-fluid" alt="No imagen" > 
+                    </div>
+                    <div class="imagenSecundaria">
+                        <img src="../../../assets/dataset/{{img5}}" class="img-fluid" alt="No imagen" > 
+                    </div>
+                </div>
+                <div class="tabla">
+                    <table>
+                        <tr id="titulo">
+                            <td>pos: </td>
+                            <th>Grupo</th>
+                            <th>Ocurrencias</th>
+                        </tr>
+                        <tr id="contenido" *ngFor="let gru of animal">
+                            <td>{{gru.posicion}}</td>
+                            <td>{{gru.nombre}}</td>
+                            <td>{{gru.ocurrencias}}</td>
+                        </tr>
+                    </table>    
+                </div>
+            </ng-template>
+    
+            <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
+                <p style="font-size: 20px; color: white">Recuperando imagenes...</p>
+              </ngx-spinner>
+    
+    
         </div>
-
-        <div *ngIf="existeImagenes != true else imagenes">
-            <div class="imagenPrimaria">
-                <img [src]="imagen1  || '../../../assets/no-image.png'" class="img-fluid" alt="No imagen" > 
-                <!-- <img src="../../../assets/dataset/{{imagenn}}" class="img-fluid" alt="No imagen" >  -->
-            </div>
-            <div class="imagenesSecundarias">
-                <div class="imagenSecundaria">
-                    <img [src]="imagen2  || '../../../assets/no-image.png'" class="img-fluid" alt="No imagen" > 
-                </div>
-                <div class="imagenSecundaria">
-                    <img [src]="imagen3  || '../../../assets/no-image.png'" class="img-fluid" alt="No imagen" > 
-                </div>
-                <div class="imagenSecundaria">
-                    <img [src]="imagen4  || '../../../assets/no-image.png'" class="img-fluid" alt="No imagen" > 
-                </div>
-                <div class="imagenSecundaria">
-                    <img [src]="imagen5  || '../../../assets/no-image.png'" class="img-fluid" alt="No imagen" > 
-                </div>
-            </div>
-        </div>
-
-        <ng-template #imagenes>
-            <div class="imagenPrimaria">
-                <img src="../../../assets/dataset/{{img1}}" class="img-fluid" alt="No imagen" > 
-            </div>
-            <div class="imagenesSecundarias">
-                <div class="imagenSecundaria">
-                    <img src="../../../assets/dataset/{{img2}}" class="img-fluid" alt="No imagen" > 
-                </div>
-                <div class="imagenSecundaria">
-                    <img src="../../../assets/dataset/{{img3}}" class="img-fluid" alt="No imagen" > 
-                </div>
-                <div class="imagenSecundaria">
-                    <img src="../../../assets/dataset/{{img4}}" class="img-fluid" alt="No imagen" > 
-                </div>
-                <div class="imagenSecundaria">
-                    <img src="../../../assets/dataset/{{img5}}" class="img-fluid" alt="No imagen" > 
-                </div>
-            </div>
-            <div class="tabla">
-                <table>
-                    <tr id="titulo">
-                        <td>pos: </td>
-                        <th>Grupo</th>
-                        <th>Ocurrencias</th>
-                    </tr>
-                    <tr id="contenido" *ngFor="let gru of animal">
-                        <td>{{gru.posicion}}</td>
-                        <td>{{gru.nombre}}</td>
-                        <td>{{gru.ocurrencias}}</td>
-                    </tr>
-                </table>    
-            </div>
-        </ng-template>
-
-        <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
-            <p style="font-size: 20px; color: white">Loading...</p>
-          </ngx-spinner>
-
         <div></div>
-        <!-- <h5 id="by">
-            By: Fernando Gomez y Juan Camilo Solarte Orozco
-        </h5> -->
+        <div style="height: 5%;">
+            <h5 id="by">
+                By: Fernando Gomez y Juan Camilo Solarte Orozco
+            </h5>
+        </div>
     </div>
 </body>

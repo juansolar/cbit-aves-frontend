@@ -55,7 +55,7 @@ export class MenuComponent implements OnInit {
       this.spinner.show()
       setTimeout( () =>{
         this.spinner.hide();
-      }, 15000);
+      }, 20000);
       console.log(this.existeImagenes)
       const a = await this.cbirService.postImage(this.imagenIngresada);
       this.existeImagenes = true;
